@@ -11,6 +11,7 @@ import org.jellyfin.apiclient.model.querying.ItemFields
 import org.jellyfin.apiclient.model.querying.ItemsResult
 import org.jellyfin.apiclient.model.querying.LatestItemsQuery
 import org.jellyfin.sdk.model.constant.CollectionType
+import org.jellyfin.sdk.model.api.BaseItemKind
 
 class HomeFragmentLatestRow(
 	private val context: Context,
@@ -37,6 +38,13 @@ class HomeFragmentLatestRow(
 					parentId = item.id
 					groupItems = true
 					limit = ITEM_LIMIT
+					includeItemTypes = arrayOf(
+						BaseItemKind.MOVIE.serialName,
+						BaseItemKind.SERIES.serialName,
+						BaseItemKind.MUSIC_ALBUM.serialName,
+						BaseItemKind.RECORDING.serialName,
+						BaseItemKind.AUDIO_BOOK.serialName,
+					)
 				}
 
 				val title = String.format("%s %s", context.getString(R.string.lbl_latest), item.name)
@@ -48,7 +56,7 @@ class HomeFragmentLatestRow(
 	}
 
 	companion object {
-		// Collections exclused from latest row based on app support and common sense
+		// Collections excluded from latest row based on app support and common sense
 		private val EXCLUDED_COLLECTION_TYPES = arrayOf(
 			CollectionType.Playlists,
 			CollectionType.LiveTv,
@@ -56,7 +64,7 @@ class HomeFragmentLatestRow(
 			CollectionType.Books,
 		)
 
-		// Maximum ammount of items loaded for a row
+		// Maximum amount of items loaded for a row
 		private const val ITEM_LIMIT = 50
 	}
 }
