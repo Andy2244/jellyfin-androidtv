@@ -20,26 +20,32 @@
 <a href="https://www.reddit.com/r/jellyfin">  
 <img alt="Join our Subreddit" src="https://img.shields.io/badge/reddit-r%2Fjellyfin-%23FF5700.svg"/>  
 </a>  
-  
+
+<h1 align="center">Update: Development of this fork has stopped!</h1>
+
+### I moved to CoreElec + Amlogic + Jellyfin for Kodi plugin
+- main issue is time to merge all the upstream changes and motivation to work on the fork while not using Zidoo devices anymore
+- there are issues/bug's that also will probably never fixed by Zidoo via there API
+    - seeking for transcodes (multisegmented http stream issue)
+    - proper enabled subtitles on play (always need to seek-back at least once until ASS show-up)
+- so far everything still works with JF 10.9.11
+    - need to edit/add path data to \jellyfin\root\default\options.xml for new direct-path libs, since the Ui option was removed, yet direct-path still works
+
+---  
 "Zidoo-Edition" is a unofficial community fork, based on the official Jellyfin Android TV client, adapted to better run on [Zidoo media players](https://www.zidoo.tv).
 ### Release [downloads here](https://github.com/Andy2244/jellyfin-androidtv-zidoo/releases)
 TIP: you can directly install from your browser via `http://zidoo_ip:18888` web interface
 ### App ONLY works with latest 10.8.1+ JF server's.
 ### Firmware 6.(4/7).40+ is also recommended, but not required.
 - feature roadmap
-    - better "smart views" and more sorting/filter options _(similar to the webclient)_
-    	- option to select audio/subtitles before playback
-    - "skip next", custom "skip foreward/back" handling for zidoo-player
     - ~add smart "original language" audio selection logic based on tmdb id's~ _done_
     - ~add better transcoding support and fallback's for unsupported codecs~ _done_
     - ~add more audio-only transcoding options (DD only, PCM 5.1 -> DD5.1)~ _done_
-    - seekable transcode playback
-    - add atmos, dv logos
+    - seekable transcode playback (not possible, wont be fixed by Zidoo)
     - ~improve layouts~ _done_
     - ~small useability improvements _(smart screen views)_~ _done
       - ~focus selection border~ _done_
       - ~add missing vertical-grid features _(genre)_~ _done_
-    - working support for trailer/intro plugin's
     - ~use new Android API from latest beta FW~ _done_
     - script hotkey action's _(xml kodi compatible)_
     - ~fix all NFS mount cases~ _done_
